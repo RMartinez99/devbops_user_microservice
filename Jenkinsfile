@@ -1,20 +1,24 @@
 node{
+
+    stage('Prepare'){
+        sh 'sudo yum install python3'
+    }
     
     stage('GitHub Checkout'){
         // git branch: 'master', credentialsId: 'git-creds', url: 'https://github.com/RMartinez99/devbops_user_microservice'
         git credentialsId: '07225310-2f34-461a-a477-caa56d951f16', url: 'https://github.com/RMartinez99/devbops_user_microservice/'
     }
     
-    stage('DevBops Event Test'){
+    stage('User Test'){
         sh 'python3 test_User.py'
     }
     
-    stage('Docker Image Build'){
+    stage('Docker Build'){
         sh 'docker build -t rm267/devbops_user .'
     
     }
 
-    stage('Docker Image Push'){
+    stage('Push'){
 
         withCredentials([string(credentialsId: 'docker-pwd', variable: 'dockerHubPwd')]) {
             sh "docker login -u rm267 -p ${dockerHubPwd}"

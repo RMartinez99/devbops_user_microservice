@@ -1,7 +1,7 @@
 node{
 
     stage('Prepare'){
-        sh 'yum install python3'
+        bash 'yum install python3'
     }
     
     stage('GitHub Checkout'){

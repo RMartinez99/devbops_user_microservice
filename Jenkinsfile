@@ -1,8 +1,5 @@
 node{
 
-    stage('Prepare'){
-        sh 'yum install python3'
-    }
     
     stage('GitHub Checkout'){
         git branch: 'master', credentialsId: 'git-creds', url: 'https://github.com/RMartinez99/devbops_user_microservice'

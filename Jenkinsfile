@@ -38,7 +38,7 @@ pipeline {
         
             
                 sh 'docker push devbops_user'
-            // }
+            }
         }
         stage('Container Execution, on private EC2'){
             steps{

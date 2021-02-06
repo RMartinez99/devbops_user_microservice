@@ -33,8 +33,9 @@ pipeline {
          }
         stage('Sailing off to Docker...'){
             steps{
-                // withCredentials([string(credentialsId: 'docker-pwd', variable: 'dockerHubPwd')]) {
-                sh "docker login -u rm267 -p dockerpass"
+                withCredentials([string(credentialsId: 'docker-pwd', variable: 'dockerHubPwd')]) {
+                    sh "docker login -u rm267 -p ${dockerHubPwd}"
+                }
         
             
                 sh 'docker push devbops_user'

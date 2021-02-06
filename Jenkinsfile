@@ -26,7 +26,7 @@ pipeline {
          }
          stage('Loading onto Docker'){
              steps{
-                 sh 'docker build -t devbops_user .'
+                 sh 'docker build -t rm267/devbops_user .'
 
              }
 
@@ -34,7 +34,7 @@ pipeline {
         stage('Sailing off to Docker...'){
             steps{
                 withCredentials([string(credentialsId: 'docker-pwd', variable: 'dockerHubPwd')]) {
-                    sh "docker login -u rm267 -p docker-pwd"
+                    sh "docker login -u rm267 -p ${dockerHubPwd}"
         
                     }
             

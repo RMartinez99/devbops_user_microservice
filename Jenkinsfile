@@ -4,14 +4,13 @@ pipeline {
          stage('GitHub Checkout'){
              steps{
                 git credentialsId: 'git-creds', url: 'https://github.com/RMartinez99/devbops_user_microservice'
-                // git credentialsId: '07225310-2f34-461a-a477-caa56d951f16', url: 'https://github.com/RMartinez99/devbops_user_microservice/'
              }
          }
          stage('Making Sure the parts work') {
              steps {
-                 withEnv(["HOME=${env.WORKSPACE}"]) {
+                //  withEnv(["HOME=${env.WORKSPACE}"]) {
                     sh 'python3 test.py'
-                 }
+                //  }
              }
          }
          stage('Loading onto Docker'){

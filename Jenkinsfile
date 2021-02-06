@@ -44,12 +44,12 @@ pipeline {
         stage('Container Execution, on private EC2'){
             steps{
 
-                sshagent(['docker-server']) {
-                    sh "ssh -o StrictHostKeyChecking=no ec2-user@34.239.250.200" // ${dockerRm}"
-                    // sh "ssh -o StrictHostKeyChecking=no ec2-user@34.239.250.200 ${dockerRmI}"
-                    // sh "ssh -o StrictHostKeyChecking=no ec2-user@34.239.250.200 ${dockerRun}"
                 
-                }
+                sh "ssh -o StrictHostKeyChecking=no ec2-user@34.239.250.200" // ${dockerRm}"
+                // sh "ssh -o StrictHostKeyChecking=no ec2-user@34.239.250.200 ${dockerRmI}"
+                // sh "ssh -o StrictHostKeyChecking=no ec2-user@34.239.250.200 ${dockerRun}"
+                
+                
         
             } 
         }  

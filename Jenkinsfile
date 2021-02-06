@@ -33,7 +33,7 @@ pipeline {
          }
         stage('Sailing off to Docker...'){
             steps{
-                withCredentials([string(credentialsId: 'docker-pwd', variable: 'dockerHubPwd')]) {
+                withCredentials([string(variable: 'dockerHubPwd')]) {
                     sh "docker login -u rm267 -p ${dockerHubPwd}"
                 }
         

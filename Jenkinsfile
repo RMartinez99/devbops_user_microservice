@@ -4,7 +4,13 @@ pipeline {
          stage('GitHub Checkout'){
              steps{
                 git credentialsId: 'git-creds', url: 'https://github.com/RMartinez99/devbops_user_microservice'
+                
              }
+         }
+         stage('Prepping to Run Tests'){
+            sh 'pip install flask --user'
+            sh 'pip install boto3 --user'
+            sh 'pip install requests --user'
          }
          stage('Making Sure the parts work') {
              steps {

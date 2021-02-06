@@ -1,10 +1,10 @@
 node{
 
-    checkout scm master
-    // stage('GitHub Checkout'){
-    //     git branch: 'master', credentialsId: 'git-creds', url: 'https://github.com/RMartinez99/devbops_user_microservice'
-    //     // git credentialsId: '07225310-2f34-461a-a477-caa56d951f16', url: 'https://github.com/RMartinez99/devbops_user_microservice/'
-    // }
+    // checkout scm master
+    stage('GitHub Checkout'){
+        git credentialsId: 'git-creds', url: 'https://github.com/RMartinez99/devbops_user_microservice'
+        // git credentialsId: '07225310-2f34-461a-a477-caa56d951f16', url: 'https://github.com/RMartinez99/devbops_user_microservice/'
+    }
     
     stage("User Test"){
         sh 'python3 test_User.py'

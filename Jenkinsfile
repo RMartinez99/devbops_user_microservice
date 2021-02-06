@@ -44,13 +44,11 @@ pipeline {
         stage('Container Execution'){
             steps{
 
+             sshagent(['ray-private'])   
+                sh "ssh -o StrictHostKeyChecking=no ec2-user@34.202.164.220 ${dockerRm}"
+                sh "ssh -o StrictHostKeyChecking=no ec2-user@34.202.164.220 ${dockerRmI}"
+                sh "ssh -o StrictHostKeyChecking=no ec2-user@34.202.164.220 ${dockerRun}"
                 
-                // sh "ssh -o StrictHostKeyChecking=no ec2-user@34.202.164.220 ${dockerRm}"
-                // sh "ssh -o StrictHostKeyChecking=no ec2-user@34.202.164.220 ${dockerRmI}"
-                // sh "ssh -o StrictHostKeyChecking=no ec2-user@34.202.164.220 ${dockerRun}"
-                sh "${dockerRm}"
-                sh "${dockerRmI}"
-                sh "${dockerRun}"
                 
                 
         

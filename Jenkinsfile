@@ -26,6 +26,7 @@ pipeline {
          }
          stage('Loading onto Docker'){
              steps{
+                 sh 'docker rm rm267/devbops_user'
                  sh 'docker build -t rm267/devbops_user .'
 
              }

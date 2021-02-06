@@ -33,13 +33,13 @@ pipeline {
         }
         stage('Container Execution, on private EC2'){
             steps{
-                def dockerRm = 'docker rm -f devbops_user'
-                def dockerRmI = 'docker rmi rm267/devbops_user'
-                def dockerRun = 'docker run -p 8092:80 -d --name devbops_event rm267/devbops_user'
+                // def dockerRm = 
+                // def dockerRmI = 
+                // def dockerRun = 
                 sshagent(['docker-server']) {
-                    sh "ssh -o StrictHostKeyChecking=no ec2-user@34.239.250.200 ${dockerRm}"
-                    sh "ssh -o StrictHostKeyChecking=no ec2-user@34.239.250.200 ${dockerRmI}"
-                    sh "ssh -o StrictHostKeyChecking=no ec2-user@34.239.250.200 ${dockerRun}"
+                    sh "ssh -o StrictHostKeyChecking=no ec2-user@34.239.250.200 'docker rm -f devbops_user'"
+                    sh "ssh -o StrictHostKeyChecking=no ec2-user@34.239.250.200 'docker rmi rm267/devbops_user'"
+                    sh "ssh -o StrictHostKeyChecking=no ec2-user@34.239.250.200 'docker run -p 8092:80 -d --name devbops_event rm267/devbops_user'"
                 
                 }
         

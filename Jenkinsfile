@@ -26,7 +26,7 @@ pipeline {
          }
          stage('Loading onto Docker'){
              steps{
-                 sh 'docker build -t connrailinfo .'
+                 sh 'docker build -t devbops_user .'
 
              }
 
@@ -34,11 +34,11 @@ pipeline {
         stage('Sailing off to Docker...'){
             steps{
                 withCredentials([string(credentialsId: 'docker-pwd', variable: 'dockerHubPwd')]) {
-                    sh "docker login -u rm267 -p placeholder"
+                    sh "docker login -u rm267 -p docker-pwd"
         
                     }
             
-                sh 'docker push rm267/connrailinfo'
+                sh 'docker push devbops_user'
             }
         }
         stage('Container Execution, on private EC2'){

@@ -33,13 +33,12 @@ pipeline {
          }
         stage('Sailing off to Docker...'){
             steps{
-                withCredentials([string(credentialsId: 'docker-pwd', variable: 'dockerHubPwd')]) {
-                    sh "docker login -u rm267 -p ${dockerHubPwd}"
+                // withCredentials([string(credentialsId: 'docker-pwd', variable: 'dockerHubPwd')]) {
+                sh "docker login -u rm267 -p dockerpass"
         
-                    }
             
                 sh 'docker push devbops_user'
-            }
+            // }
         }
         stage('Container Execution, on private EC2'){
             steps{

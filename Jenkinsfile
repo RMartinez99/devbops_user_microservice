@@ -8,9 +8,11 @@ pipeline {
              }
          }
          stage('Prepping to Run Tests'){
-            sh 'pip install flask --user'
-            sh 'pip install boto3 --user'
-            sh 'pip install requests --user'
+            steps {
+                sh 'pip install flask --user'
+                sh 'pip install boto3 --user'
+                sh 'pip install requests --user'
+            }
          }
          stage('Making Sure the parts work') {
              steps {

@@ -18,7 +18,8 @@ COPY ./requirements.txt /var/www/devbops_user_microservice/requirements.txt
 RUN pip3 install -r /var/www/devbops_user_microservice/requirements.txt
 
 # Apache config file
-COPY ./user.conf /etc/apache2/sites-available/user.conf
+# COPY ./user.conf /etc/apache2/sites-available/user.conf
+COPY ./user.conf /etc/systemd/user.conf
 RUN a2ensite user
 RUN a2enmod headers
 

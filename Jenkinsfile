@@ -14,6 +14,7 @@ pipeline {
                 sh 'pip3 install flask'
                 sh 'pip3 install boto3'
                 sh 'pip3 install requests'
+                sh 'pip3 install bcrypt'
             }
          }
          stage('Making Sure the parts work') {

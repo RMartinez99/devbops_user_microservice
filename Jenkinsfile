@@ -9,7 +9,7 @@ pipeline {
          stage('Making Sure the parts work') {
              steps {
                 //  withEnv(["HOME=${env.WORKSPACE}"]) {
-                sh 'python3 test.py'
+                sh 'python3 test_User.py'
                 //  }
              }
          }

@@ -38,7 +38,7 @@ pipeline {
                 // }
         
             
-                sh 'docker push devbops_user'
+                sh 'docker push rm267/devbops_user'
             }
         }
         stage('Container Execution, on private EC2'){
